@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* Padding */
+.padding-right {
+  padding-right: 10px;
+}
+.padding-left {
+  padding-left: 10px;
+}
+.padding-top {
+  padding-top: 10px;
+}
+.padding-bottom {
+  padding-bottom: 10px;
+}
+
+.row-spacer {
+  height: 10px;
+}
+.row-spacer-lg {
+  height: 30px;
+}
+.b {
+  font-weight: bold;
+}
+
+.i  {
+  font-style: italic;
+}
