@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Emote} from "../emote";
 import {Keys} from "../keys";
+import {Emote} from "../emote";
 
 @Component({
   selector: 'app-commissions',
