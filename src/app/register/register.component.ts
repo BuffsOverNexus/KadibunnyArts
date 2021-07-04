@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
         // Check if the user has the same password and confirmed password.
         if (this.account.password === this.confirmPassword) {
           // Call the API
-          this.httpClient.post<Account>(Environment.LOCAL_URL + 'account/create', this.account).subscribe(result => {
+          this.httpClient.post<Account>(Environment.PRODUCTION_URL + 'account/create', this.account).subscribe(result => {
             // Save the information to the localStorage to start a "session".
             localStorage.setItem(Keys.ACCOUNT_ID, String(result.id));
             localStorage.setItem(Keys.ACCOUNT_USERNAME, result.username);
