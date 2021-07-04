@@ -10,9 +10,10 @@ export class AccountComponent implements OnInit {
 
   constructor() { }
 
-  account: Account = { id: 0, email: "", password: "", username: "" };
+  account: Account = { id: 0, email: "", password: "", username: "", admin: false };
 
   ngOnInit(): void {
+
   }
 
 }
