@@ -1,0 +1,48 @@
+<app-navigation></app-navigation>
+<div class="row justify-content-center">
+  <div class="col-md-4 text-center padding-bottom ">
+    <h1 class="display-6">Create Your Account</h1>
+  </div>
+</div>
+<div class="row justify-content-center" *ngIf="errors.length > 0" >
+  <div class="col-md-4 padding-bottom ">
+    <div class="alert alert-secondary" *ngFor="let error of errors">
+      <em>{{ error }}</em>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="form-group">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="username"  placeholder="Username" [(ngModel)]="account.username">
+        <label for="username">Username</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="email" placeholder="Email" [(ngModel)]="account.email">
+        <label for="email">Email</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control"
+               [ngClass]="account.password == '' || confirmPassword == '' ? '' : (account.password != confirmPassword ? '' : 'is-valid')"
+               id="password" placeholder="Password" [(ngModel)]="account.password">
+        <label for="password">Password</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control"
+               [ngClass]="account.password == '' || confirmPassword == '' ? '' : (account.password != confirmPassword ? '' : 'is-valid')"
+               id="retypePassword" placeholder="Retype Password" [(ngModel)]="confirmPassword">
+        <label for="retypePassword">Confirm Password</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-primary btn-lg w-100 " (click)="create()"><i class="bi bi-person-plus"></i> Create Account</button>
+      </div>
+    </div>
+  </div>
+</div>

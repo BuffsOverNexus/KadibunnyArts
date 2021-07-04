@@ -13,6 +13,7 @@ import { TermsComponent } from './terms/terms.component';
 import { OrdersComponent } from './orders/orders.component';
 import { CartComponent } from './cart/cart.component';
 import { AccountComponent } from './account/account.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AccountComponent } from './account/account.component';
     OrdersComponent,
     CartComponent,
     AccountComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { AccountComponent } from './account/account.component';
       {path: 'gallery', component: GalleryComponent},
       {path: 'cart', component: CartComponent},
       {path: 'commissions', component: CommissionsComponent},
+      {path: 'account/create', component: RegisterComponent}
     ]),
   ],
   providers: [],
