@@ -1,0 +1,39 @@
+<app-navigation></app-navigation>
+<div class="row justify-content-center">
+  <div class="col-md-4 text-center padding-bottom ">
+    <h1 class="display-6">Access My Account</h1>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-4 text-center padding-bottom ">
+    <div class="alert alert-secondary" *ngIf="error.length > 0">
+      {{ error }}
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="form-group">
+      <div class="form-floating mb-3">
+        <input type="text" [(ngModel)]="account.username" class="form-control" id="username" placeholder="Username">
+        <label for="username">Username</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" [(ngModel)]="account.password" class="form-control" id="password" placeholder="Password">
+        <label for="password">Password</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col">
+        <button type="button" (click)="login()" class="btn btn-primary btn-lg w-100 "><i class="bi bi-person-fill"></i> Login</button>
+      </div>
+      <div class="col align-text-bottom text-end">
+        <a href="account/create" class="btn btn-info btn-lg w-100"><i class="bi bi-person-plus"></i> Create Account</a>
+      </div>
+    </div>
+  </div>
+</div>
