@@ -15,6 +15,8 @@ import { CartComponent } from './cart/cart.component';
 import { AccountComponent } from './account/account.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { LoginComponent } from './login/login.component';
     AccountComponent,
     RegisterComponent,
     LoginComponent,
+    AdminComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { LoginComponent } from './login/login.component';
       {path: 'cart', component: CartComponent},
       {path: 'commissions', component: CommissionsComponent},
       {path: 'account/create', component: RegisterComponent},
-      {path: 'account/login', component: LoginComponent}
+      {path: 'account/login', component: LoginComponent},
+      {path: 'admin', component: AdminComponent},
+      {path: 'logout', component: LogoutComponent},
     ]),
   ],
   providers: [],
