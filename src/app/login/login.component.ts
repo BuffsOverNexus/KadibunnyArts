@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   login(): void {
     if (this.account.username && this.account.password) {
       // Make a request to see if the login is correct.
-      this.httpClient.post<Account>(Environment.PRODUCTION_URL + 'account/by-login', this.account).subscribe(result => {
+      this.httpClient.post<Account>(Environment.LOCAL_URL + 'account/by-login', this.account).subscribe(result => {
         if (result == undefined) {
           this.error = "The username/password combination are incorrect. Try again.";
         } else {
@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem(Keys.ACCOUNT_ID, result.id.toString());
           localStorage.setItem(Keys.ACCOUNT_EMAIL, result.email);
           localStorage.setItem(Keys.ACCOUNT_USERNAME, result.username);
+          localStorage.setItem(Keys.ACCOUNT_ADMIN, result.admin.toString());
           // Redirect user to account page.
           window.location.href = 'account';
         }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Keys} from "../keys";
 
 @Component({
   selector: 'app-navigation',
@@ -9,7 +10,14 @@ export class NavigationComponent implements OnInit {
 
   constructor() { }
 
+  isAdmin: boolean = false;
+
   ngOnInit(): void {
+    // Add the "Admin Panel" button if they're admin.
+    let adminKey = localStorage.getItem(Keys.ACCOUNT_ADMIN);
+    if (adminKey && adminKey.toLowerCase() == "true") {
+      this.isAdmin = true;
+    }
   }
 
 }
