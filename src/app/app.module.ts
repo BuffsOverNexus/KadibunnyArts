@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     AdminComponent,
     LogoutComponent,
+    AdminNavigationComponent,
   ],
   imports: [
     BrowserModule,

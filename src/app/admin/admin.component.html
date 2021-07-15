@@ -1,6 +1,11 @@
-<app-navigation></app-navigation>
+<app-admin-navigation></app-admin-navigation>
 <div class="row">
-  <div class="col">
-    <h3>Admin Panel</h3>
+  <div class="col text-center">
+    <h2>Welcome, {{ username }}</h2>
+  </div>
+</div>
+<div class="row justify-content-center" *ngIf="isAdmin">
+  <div class="col-md-7">
+
   </div>
 </div>
