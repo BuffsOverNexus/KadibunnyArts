@@ -17,8 +17,9 @@
       <div class="alert alert-success" *ngIf="successfullyUpdatedEmail">
         Your email has been updated!
       </div>
-      <input type="email" [(ngModel)]="account.email" class="form-control" id="email" aria-describedby="the user's email" placeholder="Email">
-      <div class="padding-top">
+      <input type="email" [(ngModel)]="account.email" class="form-control" [disabled]="!canChangeEmail" id="email" aria-describedby="the user's email" placeholder="Email">
+      <span class="text-muted i" *ngIf="!canChangeEmail">Note: emails may not be changed at this time.</span>
+      <div class="padding-top" *ngIf="canChangeEmail">
         <button type="button" class="btn btn-info w-100" (click)="updateEmail()">Update</button>
       </div>
     </div>
@@ -35,6 +36,9 @@
              aria-describedby="confirm the user's new password" placeholder="Confirm Password">
       </div>
       <div class="d-block btn btn-info" (click)="resetPassword()">Reset Your Password</div>
+    </div>
+    <div class="form-group padding-top">
+      <a class="w-100 btn btn-secondary" href="logout">Logout</a>
     </div>
   </div>
 </div>

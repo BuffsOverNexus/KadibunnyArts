@@ -3,6 +3,7 @@ import { Account } from '../account';
 import {Keys} from "../keys";
 import {HttpClient} from "@angular/common/http";
 import {Environment} from "../environment";
+import {OptionKey, Option} from "../option";
 
 @Component({
   selector: 'app-account',
@@ -19,6 +20,7 @@ export class AccountComponent implements OnInit {
   account: Account = { id: 0, email: "", password: "", username: "", admin: false };
   password: string = "";
   confirmPassword: string = "";
+  canChangeEmail: boolean = true;
 
   ngOnInit(): void {
     // Check if the user is logged in.
@@ -29,6 +31,11 @@ export class AccountComponent implements OnInit {
       this.account.username = localStorage.getItem(Keys.ACCOUNT_USERNAME) ?? "";
       this.account.id = parseInt(localStorage.getItem(Keys.ACCOUNT_ID) ?? "0");
     }
+
+    // Ensure the user can edit the page.
+    this.httpClient.post<Option>(Environment.PRODUCTION_URL + 'option/by-key', { key: OptionKey.ACCOUNT_EDIT_EMAIL }).subscribe(result => {
+      this.canChangeEmail = JSON.parse(result.value);
+    });
   }
 
   updateEmail(): void {
