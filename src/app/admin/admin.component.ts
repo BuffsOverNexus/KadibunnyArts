@@ -17,19 +17,6 @@ export class AdminComponent implements OnInit {
 
   }
 
-  setTab(tab: number) {
-    switch(tab) {
-      case Tab.COMMISSION:
-
-        break;
-    }
-  }
-
-}
-
-export enum Tab {
-  COMMISSION = 0,
-
 }
 
 

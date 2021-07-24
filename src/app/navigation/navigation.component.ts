@@ -11,6 +11,7 @@ export class NavigationComponent implements OnInit {
   constructor() { }
 
   isAdmin: boolean = false;
+  username: string = localStorage.getItem(Keys.ACCOUNT_USERNAME) ?? "My Account";
 
   ngOnInit(): void {
     // Add the "Admin Panel" button if they're admin.
