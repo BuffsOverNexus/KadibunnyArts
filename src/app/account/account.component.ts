@@ -34,7 +34,7 @@ export class AccountComponent implements OnInit {
 
     // Ensure the user can edit the page.
     this.httpClient.post<Option>(ENV.getEnvironment() + 'option/by-key', { key: OptionKey.ACCOUNT_EDIT_EMAIL }).subscribe(result => {
-      this.canChangeEmail = JSON.parse(result.value);
+      this.canChangeEmail = JSON.parse(result.value.toLowerCase());
     });
   }
 
@@ -43,7 +43,7 @@ export class AccountComponent implements OnInit {
     if (this.account.email) {
       // Check for some basic criteria
       if (this.account.email.includes("@") && this.account.email.includes(".")) {
-        this.httpClient.post<Boolean>(Environment.PRODUCTION_URL + 'account/update-email', this.account).subscribe(result => {
+        this.httpClient.post<Boolean>(ENV.getEnvironment() + 'account/update-email', this.account).subscribe(result => {
           if (result) {
             this.successfullyUpdatedEmail = true;
             // Session does not update with new email.
