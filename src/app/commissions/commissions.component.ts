@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Keys} from "../keys";
 import {Emote} from "../emote";
+import {HttpClient} from "@angular/common/http";
+import {OptionKey, Option} from "../option";
+import {Environment} from "../environment";
 
 @Component({
   selector: 'app-commissions',
@@ -9,7 +12,7 @@ import {Emote} from "../emote";
 })
 export class CommissionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   emotes: Array<Emote> = [];
   errors: Array<Error> = [];
@@ -19,11 +22,21 @@ export class CommissionsComponent implements OnInit {
   price: number = 20.00;
   usd: boolean = false;
   hasAccount: boolean = false;
+  formEnabled: boolean = true;
+  commissionsDisabledMessage: string = "New commission requests are currently unavailable. Please try again later.";
 
   ngOnInit(): void {
     this.addEmote();
     // Determine if the user has an account
     this.hasAccount = localStorage.getItem(Keys.ACCOUNT_ID) != null;
+
+    // Retrieve the enabled commissions option and see if the page is available.
+    this.httpClient.post<Option>(Environment.LOCAL_URL + 'option/by-key', { key: OptionKey.COMMISSION_STATUS }).subscribe(result => {
+      this.formEnabled = JSON.parse(result.value);
+    });
+    this.httpClient.post<Option>(Environment.LOCAL_URL + 'option/by-key', { key: OptionKey.COMMISSION_DISABLED_MESSAGE }).subscribe(result => {
+      this.commissionsDisabledMessage = result.value;
+    });
   }
 
   addEmote(): void {

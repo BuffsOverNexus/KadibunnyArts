@@ -36,7 +36,7 @@ export class AccountComponent implements OnInit {
     if (this.account.email) {
       // Check for some basic criteria
       if (this.account.email.includes("@") && this.account.email.includes(".")) {
-        this.httpClient.post<Account>(Environment.PRODUCTION_URL + 'account/update-email', this.account).subscribe(result => {
+        this.httpClient.post<Boolean>(Environment.PRODUCTION_URL + 'account/update-email', this.account).subscribe(result => {
           if (result) {
             this.successfullyUpdatedEmail = true;
             // Session does not update with new email.
@@ -60,7 +60,7 @@ export class AccountComponent implements OnInit {
           if (this.password.length >= 8) {
             // Update with the password in the account.
             this.account.password = this.password;
-            this.httpClient.post<Account>(Environment.PRODUCTION_URL + 'account/change-password', this.account).subscribe(result => {
+            this.httpClient.post<Boolean>(Environment.PRODUCTION_URL + 'account/change-password', this.account).subscribe(result => {
               // Should work, then we close.
               if (result) {
                 this.isResettingPassword = false;

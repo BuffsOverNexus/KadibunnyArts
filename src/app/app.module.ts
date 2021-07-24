@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from "@angular/router";
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -18,6 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
+import { AdminCommissionsComponent } from './admin-commissions/admin-commissions.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { AdminNavigationComponent } from './admin-navigation/admin-navigation.co
     AdminComponent,
     LogoutComponent,
     AdminNavigationComponent,
+    AdminCommissionsComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,8 @@ import { AdminNavigationComponent } from './admin-navigation/admin-navigation.co
       {path: 'account/login', component: LoginComponent},
       {path: 'admin', component: AdminComponent},
       {path: 'logout', component: LogoutComponent},
+      {path: 'admin/commissions', component: AdminCommissionsComponent},
+      {path: 'admin/settings', component: SettingsComponent},
     ]),
   ],
   providers: [],
