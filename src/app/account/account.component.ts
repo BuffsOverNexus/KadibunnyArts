@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Account } from '../account';
 import {Keys} from "../keys";
 import {HttpClient} from "@angular/common/http";
-import {Environment} from "../environment";
+import {ENV, Environment} from "../environment";
 import {OptionKey, Option} from "../option";
 
 @Component({
@@ -33,7 +33,7 @@ export class AccountComponent implements OnInit {
     }
 
     // Ensure the user can edit the page.
-    this.httpClient.post<Option>(Environment.PRODUCTION_URL + 'option/by-key', { key: OptionKey.ACCOUNT_EDIT_EMAIL }).subscribe(result => {
+    this.httpClient.post<Option>(ENV.getEnvironment() + 'option/by-key', { key: OptionKey.ACCOUNT_EDIT_EMAIL }).subscribe(result => {
       this.canChangeEmail = JSON.parse(result.value);
     });
   }
